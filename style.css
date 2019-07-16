@@ -1,0 +1,445 @@
+body {
+  font-family: helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  /* background: #dfe4ea; */
+  margin: 0;
+  padding: 0;
+}
+
+/* navigation */
+.bar {
+  position: sticky;
+  background: #ffffff;
+  top: 0;
+  padding: 0.5rem;
+  box-shadow: 0 3px 10px -5px #0000002f;
+  z-index: 50;
+}
+.navbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.box {
+  width: 45px;
+}
+
+.contactnav {
+  padding-right: 0.4rem;
+}
+.contactnav > a {
+  color: black;
+  text-decoration: none;
+}
+
+.menu-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.menu-wrap .toggler {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  cursor: pointer;
+  width: 45px;
+  height: 45px;
+  left: 0rem;
+  opacity: 0;
+}
+.menu-wrap .hamburger {
+  background: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 24px;
+  height: 24px;
+  padding: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hamburger Line */
+.menu-wrap .hamburger > div {
+  position: relative;
+  flex: none;
+  width: 100%;
+  height: 2px;
+  background: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+/* Hamburger Lines - Top & Bottom */
+.menu-wrap .hamburger > div::before,
+.menu-wrap .hamburger > div::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: -7px;
+  width: 100%;
+  height: 2px;
+  background: inherit;
+}
+.menu-wrap .hamburger > div::after {
+  top: 7px;
+}
+
+/* Toggler animate */
+.menu-wrap .toggler:hover + .hamburger > div {
+  transform: scale(1.2);
+}
+.menu-wrap .toggler:checked + .hamburger > div {
+  transform: rotate(135deg);
+}
+
+/* turn lines into X */
+.menu-wrap .toggler:checked + .hamburger > div:before,
+.menu-wrap .toggler:checked + .hamburger > div:after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+/* totate on hover when checked */
+.menu-wrap .toggler:checked:hover + .hamburger > div {
+  transform: rotate(225deg);
+}
+
+/* Show Menu */
+.menu-wrap .toggler:checked ~ .menu {
+  visibility: visible;
+}
+
+.menu-wrap .toggler:checked ~ .menu > div {
+  transform: scale(1);
+  transition-duration: var(--menu-speed);
+}
+
+.menu-wrap .toggler:checked ~ .menu > div > div {
+  opacity: 1;
+  transition: opacity 0.4s ease 0.2s;
+}
+
+.menu-wrap .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-wrap .menu > div {
+  background: black;
+  border-radius: 50%;
+  width: 200vw;
+  height: 200vw;
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0);
+  transition: all 0.4s ease;
+}
+
+.menu-wrap .menu > div > div {
+  text-align: center;
+  max-width: 90vw;
+  max-height: 100vh;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.menu-wrap .menu > div > div > ul > li {
+  list-style: none;
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+.menu-wrap .menu > div > div > ul > li > a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.4s ease;
+}
+
+/*
+.banner {
+  width: 100vw;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner h1 {
+  animation: fadeIn 0.3s ease-in;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  transform: translatex(-100px);
+}
+.banner p {
+  animation: fadeIn 0.3s ease-in;
+  animation-delay: 0.6s;
+  max-width: 400px;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  transform: translateX(100px);
+}
+
+.banner button {
+  animation: fadeIn 0.3s ease-in;
+  animation-delay: 1.2s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  transform: translateY(100px);
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+    transform: translateX(0px);
+  }
+}
+*/
+
+/* button */
+.btn {
+  border: none;
+  margin: 20px;
+  padding: 20px;
+  width: 220px;
+  text-transform: uppercase;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #fff;
+  background-size: 200%;
+  transition: 0.6s;
+  background-image: linear-gradient(to left, #5758bb, #d980fa, #5758bb);
+}
+.btn:hover {
+  background-position: right;
+}
+
+/* read more btn */
+.btnbox2 a {
+  color: #5758bb;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.btnbox2 a:hover {
+  text-decoration: underline;
+}
+
+/* read article btn */
+.btn3 {
+  border: none;
+  background-color: white;
+  margin: 20px;
+  padding: 15px;
+  width: 150px;
+  text-transform: uppercase;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn3:hover {
+  background-color: rgba(153, 128, 250, 1);
+  color: #fff;
+}
+
+/* social icon */
+.iconContainer {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  color: #57606f;
+  overflow: hidden;
+  position: relative;
+}
+
+.icon i {
+  line-height: 40px;
+  font-size: 20px;
+  transition: 0.2s linear;
+}
+
+.icon:hover i {
+  transform: scale(1.3);
+  color: #9980fa;
+}
+
+/* footer */
+.footerContainer {
+  padding: 20px;
+  margin-top: 20px;
+  color: #57606f;
+  background: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.copytext {
+  padding-right: 10px;
+}
+@media all and (max-width: 500px) {
+  .footerContainer {
+    flex-direction: column;
+    align-content: center;
+  }
+  .copytext {
+    padding-right: 0;
+  }
+}
+
+/* blog card*/
+.blog-card {
+  max-width: 550px;
+  width: 100%;
+  height: 500px;
+  position: relative;
+  color: #fff;
+  overflow: hidden;
+  border-radius: 0px;
+  box-shadow: 0px 10px 20px -9px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  transition: all 0.4s;
+  background: url(https://unsplash.it/600/800?image=1061) center no-repeat;
+  background-size: 100%;
+}
+
+.blog-card .color-overlay {
+  background: rgba(64, 84, 94, 0.5);
+  width: 550px;
+  height: 500px;
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  transition: background 0.3s cubic-bezier(0.33, 0.66, 0.66, 1);
+}
+.blog-card .gradient-overlay {
+  background-image: linear-gradient(transparent 0%, rgba(0, 0, 0, 0.6) 21%);
+  width: 550px;
+  height: 500px;
+  position: absolute;
+  top: 300px;
+  left: 0;
+  z-index: 15;
+}
+.blog-card:hover {
+  box-shadow: 0px 18px 20px -9px rgba(0, 10, 30, 0.75);
+}
+.blog-card:hover .card-info {
+  opacity: 1;
+  bottom: 100px;
+}
+.blog-card:hover .color-overlay {
+  background: rgba(64, 64, 70, 0.8);
+}
+.blog-card:hover .title-content {
+  margin-top: 70px;
+}
+.title-content {
+  text-align: center;
+  margin: 170px 0 0 0;
+  position: absolute;
+  z-index: 20;
+  width: 100%;
+  top: 0;
+  left: 0;
+  transition: all 0.6s;
+}
+
+.blog-card:hover h3:after {
+  animation: changeLetter 0.3s 1 linear;
+  width: 80%;
+}
+
+.blog-card h3,
+h1 {
+  font-size: 1.9em;
+  font-weight: 400;
+  letter-spacing: 1px;
+  font-family: "Abril Fatface", serif;
+  margin-bottom: 0;
+  display: inline-block;
+}
+
+h3:after {
+  content: " ";
+  display: block;
+  width: 10%;
+  height: 2px;
+  margin: 20px auto;
+  border: 0;
+  background: #bda26b;
+  transition: all 0.2s;
+}
+
+.intro {
+  width: 170px;
+  margin: 0 auto;
+  color: #ddd;
+  font-style: italic;
+  line-height: 18px;
+}
+
+.card-info {
+  box-sizing: border-box;
+  padding: 0;
+  width: 100%;
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  margin: 0 auto;
+  padding: 0 50px;
+  font-style: 16px;
+  line-height: 24px;
+  z-index: 20;
+  opacity: 0;
+  transition: bottom 0.64s, opacity 0.63s cubic-bezier(0.33, 0.66, 0.66, 1);
+}
+
+@media (max-width: 500px) {
+  .card-info {
+    display: none;
+  }
+  .blog-card:hover .title-content,
+  .title-content {
+    margin-top: 40px;
+  }
+  .blog-card {
+    height: 300px;
+  }
+  .blog-card h3 {
+    font-size: 1.3em;
+  }
+  .intro {
+    font-size: 0.8em;
+  }
+}
